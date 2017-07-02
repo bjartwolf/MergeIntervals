@@ -4,7 +4,8 @@ open FsCheck.Xunit
 
 let rnd = System.Random()
 
-[<Property>]
-let ``Einar and Bjorn Einar agree`` (baseList: int list) = 
-    let testList = baseList |> List.map (fun x -> (x, x+rnd.Next())) 
+[<Property(Verbose = true)>]
+let ``Einar and Bjorn Einar agree`` (baseList: (int*int) list) = 
+    let testList = baseList
+                       |> List.map (fun (x,y) -> if x < y then (x,y) else (y,x))
     Einar.fmo testList = BjornEinar.fmo testList 
