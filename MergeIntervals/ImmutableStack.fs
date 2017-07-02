@@ -1,4 +1,4 @@
-﻿module Einar 
+﻿module ImmutableStack 
 
 let rec merge = function
   | [] -> []

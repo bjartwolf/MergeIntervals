@@ -55,9 +55,9 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Original.fs" />
-    <Compile Include="BjornEinar.fs" />
+    <Compile Include="MutableStack.fs" />
     <Compile Include="Readable.fs" />
-    <Compile Include="Einar.fs" />
+    <Compile Include="ImmutableStack.fs" />
     <Compile Include="Tests.fs" />
     <Compile Include="PropertyTests.fs" />
     <None Include="Script.fsx" />

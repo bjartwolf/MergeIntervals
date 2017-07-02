@@ -6,26 +6,35 @@ let testdata_singleInterval = [(1,1)]
 
 let testdata_sum_4 = [(3,4);(6,7)]
 let testdata_sum_19  = [0, 8; 10,19; 11,19]
+let testdata_from_fscheck_sum_4 = [(3, 3); (0, 3); (0, 0)]
 
 [<Fact>]
-let ``BjornEinar handles single interval ``() =
-    Assert.Equal(BjornEinar.fmo testdata_singleInterval, 1)
+let ``MutableStack handles weird fscheckdata``() =
+    Assert.Equal(MutableStack.fmo testdata_from_fscheck_sum_4, 4)
+
+[<Fact>]
+let ``Original handles weird fscheckdata``() =
+    Assert.Equal(Original.fmo testdata_from_fscheck_sum_4, 4)
+
+[<Fact>]
+let ``MutableStack handles single interval ``() =
+    Assert.Equal(MutableStack.fmo testdata_singleInterval, 1)
 
 [<Fact>]
 let ``Original handles single interval ``() =
     Assert.Equal(Original.fmo testdata_singleInterval, 1)
 
 [<Fact>]
-let ``Einar handles single interval ``() =
-    Assert.Equal(Einar.fmo testdata_singleInterval, 1)
+let ``ImmutableStack handles single interval ``() =
+    Assert.Equal(ImmutableStack.fmo testdata_singleInterval, 1)
 
 [<Fact>]
-let ``BjornEinar handles empty case``() =
-    Assert.Equal(BjornEinar.fmo testdata_empty, 0)
+let ``MutableStack handles empty case``() =
+    Assert.Equal(MutableStack.fmo testdata_empty, 0)
    
 [<Fact>]
-let ``Einar handles empty case``() =
-    Assert.Equal(Einar .fmo testdata_empty, 0)
+let ``ImmutableStack handles empty case``() =
+    Assert.Equal(ImmutableStack .fmo testdata_empty, 0)
 
 [<Fact>]
 let ``Original handles empty case``() =
@@ -41,17 +50,17 @@ let ``Original handles another simple case``() =
 
 [<Fact>]
 
-let ``Bjorn Einar handles a simple case``() =
-    Assert.Equal(BjornEinar.fmo testdata_sum_4, 4)
+let ``MutableStack handles a simple case``() =
+    Assert.Equal(MutableStack.fmo testdata_sum_4, 4)
 
 [<Fact>]
-let ``Bjorn Einar handles another simple case``() =
-    Assert.Equal(BjornEinar.fmo testdata_sum_19, 19)
+let ``MutableStack handles another simple case``() =
+    Assert.Equal(MutableStack.fmo testdata_sum_19, 19)
 
 [<Fact>]
-let ``Einar handles a simple case``() =
-    Assert.Equal(Einar.fmo testdata_sum_4, 4)
+let ``ImmutableStack handles a simple case``() =
+    Assert.Equal(ImmutableStack.fmo testdata_sum_4, 4)
 
 [<Fact>]
-let ``Einar handles another simple case``() =
-    Assert.Equal(Einar.fmo testdata_sum_19, 19)
+let ``ImmutableStack handles another simple case``() =
+    Assert.Equal(ImmutableStack.fmo testdata_sum_19, 19)
