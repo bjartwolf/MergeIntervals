@@ -31,6 +31,6 @@ let fmo (input : (int*int) list) =
 
         //4. At the end stack contains the merged intervals. 
 
-        let lengthOfInterval i = i.End - i.Start
+        let lengthOfInterval i = i.End - i.Start + 1
 
         stack.Sum(System.Func<OpenInterval,int>(fun i -> lengthOfInterval i)) 

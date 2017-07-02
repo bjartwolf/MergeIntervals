@@ -9,4 +9,4 @@ let rec merge = function
     else
       merge ((s, max e e') :: rest)
       
-let fmo = List.sortBy (fun (s, e) -> s) >> merge >> List.sumBy (fun (s, e) -> e - s)
+let fmo = List.sortBy (fun (s, e) -> s) >> merge >> List.sumBy (fun (s, e) -> e - s + 1)

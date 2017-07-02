@@ -23,4 +23,4 @@ let fmo input =
     input
     |> ResolveOverlappingRanges
     |> List.distinctBy(fun x -> (fst x) + (snd x) )
-    |> List.sumBy(fun x -> (snd x) - (fst x) ) 
+    |> List.sumBy(fun x -> (snd x) - (fst x) + 1) 
